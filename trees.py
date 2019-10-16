@@ -1,4 +1,20 @@
 
+# Preorder traversal (left, root, right)
+# Visit root node first
+# Then recursively do a preorder traversal of the left subtree
+# followed by a recursive preorder traversal of the right subtree
+# reading a book from 1st chapter onwards
+
+# Inorder traversal (root, left, right)
+# Recursively do an inorder traversal on the left subtree,
+# visit the root node,
+# finally do a recursive inorder traversal of the right subtree
+
+# Postorder (left, right, root)
+# Recursively do a postorder traversal of the left subtree and the right subtree
+# followed by a visit to the root node
+
+
 class BinaryTree(object):
 
     def __init__(self, root_object):
@@ -36,8 +52,16 @@ class BinaryTree(object):
 
 
 if __name__ == "__main__":
-    r = BinaryTree('a')
-    # print(r.get_root_value())
-    # print(r.get_left_child())f
-    r.insert_left('b')
-    print(r.get_left_child().get_root_value())
+    tree1 = BinaryTree(1)
+    tree2 = BinaryTree(2)
+    tree2.insert_left(4)
+    tree2.insert_right(5)
+
+    tree1.left_child = tree2
+    tree1.insert_right(3)
+
+    print(tree1.get_root_value())
+    print(tree1.get_left_child().get_root_value())
+    print(tree1.get_left_child().get_left_child().get_root_value())
+    print(tree1.get_left_child().get_right_child().get_root_value())
+    print(tree1.get_right_child().get_root_value())
